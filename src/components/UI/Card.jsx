@@ -34,7 +34,7 @@ const Card = ({
 				<div className='cursor-pointer'>
 					<Badge color='bg-details'>
 						<a href={html_url} target='_blank'>
-							<span className='text-primary'> {open_issues_count}</span>
+							<span className='text-primary'> {open_issues_count} Issues</span>
 						</a>{" "}
 					</Badge>
 				</div>
