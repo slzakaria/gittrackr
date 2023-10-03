@@ -1,0 +1,8 @@
+
+html[data-theme="light"] {
+	--primary: #ffffff;
+	--secondary: #74b389;
+	--accent: #705f2e;
+	--textColor: #1f1b1b;
+	--details: #544443;
+	}
