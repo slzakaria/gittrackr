@@ -1,3 +1,6 @@
+@import "./themes/light.css";
+@import "./themes/dark.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,3 +17,46 @@
 .mainContent {
 	grid-area: 2 / 3 / 6 / 6;
 } */
+
+/* Your base theme settings */
+
+@layer base {
+	html {
+		--primary: #161925;
+		--secondary: #174D64;
+		--accent: #A8DADC;
+		--textColor: #F1FAEE;
+		--details: #F49390;
+		--opposite: #E9E6DA;
+		}
+
+	html[data-theme="default"] {
+		--primary: #161925;
+		--secondary: #174D64;
+		--accent: #A8DADC;
+		--textColor: #F1FAEE;
+		--details: #F49390;
+		--opposite: #E9E6DA;
+		}
+
+	html[data-theme="dark"] {
+		--primary: #000000;
+		--secondary: #2d0000;
+		--accent: #c7b3b3;
+		--textColor: #876b6b;
+		--details: #c19393;
+		--opposite: #FFFFFF;
+		}
+	
+		
+	html[data-theme="light"] {
+		--primary: #f6f8ff;
+		--secondary: #74b389;
+		--accent: #705f2e;
+		--textColor: #1f1b1b;
+		--details: #544443;
+		--opposite: #090700;
+		}
+  }
+
+  

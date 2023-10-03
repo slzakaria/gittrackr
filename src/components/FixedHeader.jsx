@@ -1,4 +1,5 @@
 import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
+import ThemeToggleIcon from "./UI/ThemeToggleIcon";
 
 const FixedHeader = () => {
 	return (
@@ -7,11 +8,12 @@ const FixedHeader = () => {
 				<div className='flex justify-between items-center'>
 					<p className='text-textColor hover:text-details'>Git Tracker</p>
 					<ul className='flex gap-4 mx-4 text-xl'>
+						<ThemeToggleIcon />
 						<li className='hover:scale-125'>
 							<a
 								href='https://github.com/Zackaria-Slimane'
 								target='_blank'
-								className='hover:text-details'>
+								className='text-details hover:text-opposite'>
 								<FaGithub />
 							</a>
 						</li>
@@ -19,7 +21,7 @@ const FixedHeader = () => {
 							<a
 								href='https://twitter.com/gitignorer'
 								target='_blank'
-								className='hover:text-details'>
+								className='text-details hover:text-opposite'>
 								<FaSquareXTwitter />
 							</a>
 						</li>
