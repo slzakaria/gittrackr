@@ -1,8 +1,7 @@
-
 html[data-theme="dark"] {
 	--primary: #000000;
 	--secondary: #2d0000;
 	--accent: #c7b3b3;
 	--textColor: #876b6b;
 	--details: #c19393;
-	}
+}

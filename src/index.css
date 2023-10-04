@@ -5,50 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .parentGrid {
-	@apply grid grid-cols-[repeat(5,1fr)] grid-rows-[repeat(5,1fr)] gap-x-0 gap-y-0;
-}
-.fixedHeader {
-	grid-area: 1 / 1 / 2 / 6;
-}
-.fixedSide {
-	grid-area: 2 / 1 / 6 / 3;
-}
-.mainContent {
-	grid-area: 2 / 3 / 6 / 6;
-} */
-
-/* Your base theme settings */
-
 @layer base {
 	html {
 		--primary: #161925;
-		--secondary: #174D64;
-		--accent: #A8DADC;
-		--textColor: #F1FAEE;
-		--details: #F49390;
-		--opposite: #E9E6DA;
-		}
-
-	html[data-theme="default"] {
-		--primary: #161925;
-		--secondary: #174D64;
-		--accent: #A8DADC;
-		--textColor: #F1FAEE;
-		--details: #F49390;
-		--opposite: #E9E6DA;
-		}
+		--secondary: #174d64;
+		--accent: #a8dadc;
+		--textColor: #f1faee;
+		--details: #f49390;
+		--opposite: #e9e6da;
+	}
 
 	html[data-theme="dark"] {
-		--primary: #000000;
-		--secondary: #2d0000;
-		--accent: #c7b3b3;
-		--textColor: #876b6b;
-		--details: #c19393;
-		--opposite: #FFFFFF;
-		}
-	
-		
+		--primary: #161925;
+		--secondary: #174d64;
+		--accent: #a8dadc;
+		--textColor: #f1faee;
+		--details: #f49390;
+		--opposite: #e9e6da;
+	}
+
 	html[data-theme="light"] {
 		--primary: #f6f8ff;
 		--secondary: #74b389;
@@ -56,7 +31,5 @@
 		--textColor: #1f1b1b;
 		--details: #544443;
 		--opposite: #090700;
-		}
-  }
-
-  
+	}
+}
