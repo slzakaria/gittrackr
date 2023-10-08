@@ -20,7 +20,8 @@ const SideBar = () => {
 	};
 
 	return (
-		<aside className={`hidden pt-16 w-[30dvw] text-white bg-primary fixed inset-y-0 overflow-x-hidden overflow-hidden sm:block border-r-2 border-details`}>
+		<aside
+			className={`hidden pt-16 w-[30dvw] text-white bg-primary fixed inset-y-0 overflow-x-hidden overflow-hidden sm:block border-r-2 border-details`}>
 			<div className='p-4 min-h-full mt-4'>
 				<div className='px-6 pb-6 flex items-start sm:flex-col'>
 					<div className='hidden px-3 text-white text-base sm:block'>
