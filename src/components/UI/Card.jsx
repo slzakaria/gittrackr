@@ -9,9 +9,9 @@ const Card = ({
 	stargazers_count,
 	language,
 }) => {
-
 	return (
-		<div className={`bg-primary border-2 border-details hover:bg-gray-800 rounded-sm p-4 flex gap-2 justify-between`}>
+		<div
+			className={`bg-primary border-2 border-details hover:bg-secondary  rounded-sm p-4 flex gap-2 justify-between`}>
 			<div className='max-w-[200px] sm:max-w-[400px]'>
 				<a
 					href={html_url}
