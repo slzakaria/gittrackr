@@ -5,16 +5,16 @@ import TechProvider from "./components/TechProvider";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  return (
-    <>
-      <Toaster position="top-center" reverseOrder={false} />
-      <FixedHeader />
-      <TechProvider>
-        <SideBar />
-        <MainSection />
-      </TechProvider>
-    </>
-  );
+	return (
+		<>
+			<Toaster position='top-center' reverseOrder={false} />
+			<FixedHeader />
+			<TechProvider>
+				<SideBar />
+				<MainSection />
+			</TechProvider>
+		</>
+	);
 }
 
 export default App;

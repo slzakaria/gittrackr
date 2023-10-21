@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import Tag from "./UI/Tag";
 import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
 import TechContext from "../utils/techContext";
+import Tag from "./UI/Tag";
 
 const SideBar = () => {
 	const { techs, updateSharedData } = useContext(TechContext);
