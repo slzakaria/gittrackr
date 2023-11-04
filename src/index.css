@@ -13,6 +13,7 @@
 		--textColor: #f1faee;
 		--details: #f49390;
 		--opposite: #e9e6da;
+		font-family: "JetBrains Mono", monospace;
 	}
 
 	html[data-theme="dark"] {

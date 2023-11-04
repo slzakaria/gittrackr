@@ -11,8 +11,8 @@ const Card = ({
 }) => {
 	return (
 		<div
-			className={`bg-primary border-2 border-details hover:bg-secondary  rounded-sm p-4 flex gap-2 justify-between`}>
-			<div className='max-w-[200px] sm:max-w-[400px]'>
+			className={`bg-primary border-2 border-details hover:bg-secondary rounded-xl p-4 flex gap-2 justify-between cursor-default`}>
+			<div className='max-w-[200px] sm:max-w-[400px] '>
 				<a
 					href={html_url}
 					target='_blank'
@@ -24,7 +24,7 @@ const Card = ({
 					<span> Visit the repo </span>
 				</a>
 				<div className='flex gap-6 items-center text-textColor p-1 mt-4'>
-					<p className='text-sm text-textColor border-2 py-1 px-2 border-details rounded-sm '>
+					<p className='text-sm text-textColor border-2 py-1 px-2 border-details rounded-lg '>
 						{" "}
 						{language}
 					</p>

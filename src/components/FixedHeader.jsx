@@ -3,7 +3,7 @@ import ThemeToggleIcon from "./UI/ThemeToggleIcon";
 
 const FixedHeader = () => {
 	return (
-		<nav className='fixed top-0 inset-x-0 z-50 h-fit p-4 text-white bg-primary font-medium shadow-sm shadow-details'>
+		<nav className='fixed top-0 inset-x-0 z-50 h-fit p-4 text-white bg-primary font-medium shadow-md shadow-details'>
 			<div className='p-2'>
 				<div className='flex justify-between items-center'>
 					<p className='text-textColor hover:text-details'>Git Tracker</p>
