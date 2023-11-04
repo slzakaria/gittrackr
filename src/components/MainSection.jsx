@@ -49,7 +49,7 @@ const MainSection = () => {
 
 	return (
 		<main className='h-full pb-6 pt-24 px-6 w-full sm:max-w-[70dvw] fixed right-0 bg-primary min-h-screen overflow-y-scroll'>
-			<h1 className='text-details uppercase tracking-wider text-center mb-6'>
+			<h1 className='text-details uppercase tracking-wider text-center my-6'>
 				{activeTech === "any" ? "Recent open  issues" : activeTech + " Open Issues"}
 			</h1>
 			<div className='w-full px-2 sm:hidden mx-auto my-6'>
