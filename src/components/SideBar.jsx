@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
 import TechContext from "../utils/techContext";
 import Tag from "./UI/Tag";
 
@@ -28,7 +27,7 @@ const SideBar = () => {
 						<h2 className={`text-details text-xl underline my-2`}>About Git trackr :</h2>
 						<p className={`text-textColor`}>
 							Fetches and lists all github repositories who have open issues and have been
-							active the last 3 months.
+							active the last 6 months.
 							<br />
 							Find active easy repos to help on !
 						</p>
