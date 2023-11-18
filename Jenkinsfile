@@ -53,7 +53,7 @@ pipeline {
             }
         }
 
-        stage('TRIVY FS SCAN') {
+        stage('TRIVY Code SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
             }
@@ -77,9 +77,14 @@ pipeline {
 								}
 						}
 				}
-        stage("Docker TRIVY") {
+        stage("Docker TRIVY Scan") {
             steps {
                 sh "trivy image zackariasl/gittracker:latest > trivy.txt"
+            }
+        }
+				stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name cicd -p 3000:3000 zackariasl/gittracker:latest'
             }
         }
     }
