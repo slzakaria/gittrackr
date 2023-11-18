@@ -58,15 +58,7 @@ pipeline {
                 sh "trivy fs . > trivyfs.txt"
             }
         }
-				stage("Configure Docker") {
-						steps {
-								script {
-										echo "Attempting to add jenkins to the docker group..."
-
-								}
-						}
-				}
-				stage("Docker Build & Push") {
+				stage("Docker setup, Build & Push") {
 						steps {
 								script {
 										withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
