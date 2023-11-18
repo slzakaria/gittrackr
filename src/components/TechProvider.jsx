@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import TechContext from "../utils/techContext";
 
 const TechProvider = ({ children }) => {
@@ -34,11 +34,11 @@ const TechProvider = ({ children }) => {
 		setActive(newActiveTech);
 	};
 
-	return (
-		<TechContext.Provider value={{ techs, activeTech, updateSharedData }}>
-			{children}
-		</TechContext.Provider>
-	);
+	const contextValue = useMemo(() => {
+		return { techs, activeTech, updateSharedData };
+	}, [techs, activeTech, updateSharedData]);
+
+	return <TechContext.Provider value={contextValue}>{children}</TechContext.Provider>;
 };
 
 export default TechProvider;

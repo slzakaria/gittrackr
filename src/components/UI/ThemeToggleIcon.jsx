@@ -3,7 +3,6 @@ import { FaMoon, FaSun } from "react-icons/fa6";
 import { changeTheme } from "../../utils/changeTheme";
 
 const ThemeToggleIcon = () => {
-	const themeList = ["light", "dark"];
 	const [currentTheme, setCurrentTheme] = useState("dark");
 
 	const nextTheme = (current) => {

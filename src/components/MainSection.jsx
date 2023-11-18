@@ -12,7 +12,6 @@ const MainSection = () => {
 
 	const handleChange = (event) => {
 		let selected = event.target.value;
-		console.log(selected);
 		setSelectedValue(selected);
 
 		localList.forEach((tech) => {
@@ -27,7 +26,7 @@ const MainSection = () => {
 		updateSharedData(result);
 	};
 
-	const { data, isLoading, isError } = useFetch(
+	const { data, isError } = useFetch(
 		`https://git-tracker.onrender.com/api/issues/${activeTech}`
 	);
 
