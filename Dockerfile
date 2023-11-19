@@ -7,7 +7,7 @@ RUN npm run build
 
 
 # Use a smaller image for runtime
-FROM node:20.9-alpine
+FROM node:20.9-alpine AS runtime
 RUN addgroup -S nonroot \
     && adduser -S nonroot -G nonroot
 WORKDIR /app
