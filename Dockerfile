@@ -1,15 +1,9 @@
-FROM node:20.9-alpine as builder
+FROM node:20.9-alpine
 WORKDIR /app
 COPY package*.json ./
+RUN npm install serve -g
 RUN npm install
 COPY . .
 RUN npm run build
-
-# Use a smaller image for runtime
-FROM node:20.9-alpine
-WORKDIR /app
-COPY --from=builder /app/dist /app/dist
-COPY package*.json ./
-RUN npm install --production
 EXPOSE 3000
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "serve"]
