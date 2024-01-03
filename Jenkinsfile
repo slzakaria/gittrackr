@@ -17,13 +17,13 @@ pipeline {
             }
         }
 
-        stage('Checkout from Git') {
+        stage('Git checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Zackaria-Slimane/gittrackr.git'
             }
         }
 
-        stage("SonarQube Analysis") {
+        stage("SonarQube static Analysis") {
             steps {
                 withSonarQubeEnv('sonar-server') {
                     sh """$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Gittracker \
@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        stage("Quality gate") {
+        stage("SonarQube gate check") {
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube'
@@ -46,19 +46,20 @@ pipeline {
             }
         }
 
-        stage('OWASP FS SCAN') {
+        stage('OWASP Security FS SCAN') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'dp-check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
-        stage('TRIVY Code SCAN') {
+        stage('TRIVY FS SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
             }
         }
-				stage("Docker setup, Build & Push") {
+
+       stage("Docker setup, Build & Push") {
 						steps {
 								script {
 										withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
@@ -69,15 +70,49 @@ pipeline {
 								}
 						}
 				}
-        stage("Docker TRIVY Scan") {
+
+        stage("Docker image TRIVY Scan") {
             steps {
                 sh "trivy image zackariasl/gittracker:latest > trivy.txt"
             }
         }
-				stage('Deploy to container'){
-            steps{
-                sh 'docker run -d --name cicd -p 3000:3000 zackariasl/gittracker:latest'
+
+        stage('Docker build || run container') {
+            steps {
+                script {
+                    def containerName = 'cicd'
+                    def containerExists = sh(script: "docker ps -a --format '{{.Names}}' | grep -w ${containerName}", returnStatus: true) == 0
+
+                    if (containerExists) {
+                        echo "Container ${containerName} already exists."
+                        sh "docker start ${containerName}"
+                    } else {
+                        echo "Container ${containerName} building from scratch"
+                        sh "docker run -d --name ${containerName} -p 3000:3000 zackariasl/gittracker:latest"
+                    }
+                }
             }
+        }
+				stage('Deploy to kubernetes'){
+            steps{
+                script{
+                    withKubeConfig(caCertificate: '', clusterName: 'GittrackerK8s', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                       sh 'kubectl apply -f deployment.yaml'
+                  }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            emailext attachLog: true,
+                subject: "'${currentBuild.result}'",
+                body: "Project: ${env.JOB_NAME}<br/>" +
+                    "Build Number: ${env.BUILD_NUMBER}<br/>" +
+                    "URL: ${env.BUILD_URL}<br/>",
+                to: 'slzackaria@gmail.com',
+                attachmentsPattern: 'trivy.txt'
         }
     }
 }

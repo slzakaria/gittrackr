@@ -26,16 +26,14 @@ const SideBar = () => {
 					<div className='hidden px-3 text-white text-base sm:block'>
 						<h2 className={`text-details text-xl underline my-2`}>About Git trackr :</h2>
 						<p className={`text-textColor`}>
-							Fetches and lists all github repositories who have open issues and have been
-							active the last 6 months.
+							Fetches and lists all github repositories who have open issues and have been active
+							the last 6 months.
 							<br />
 							Find active easy repos to help on !
 						</p>
 					</div>
 					<div className='hidden px-3 text-white text-base sm:block mt-10'>
-						<h2 className={`text-details underline my-2 text-xl`}>
-							Filter by technology :
-						</h2>
+						<h2 className={`text-details underline my-2 text-xl`}>Filter by technology :</h2>
 						<div className='my-4 flex flex-wrap gap-2 mx-auto'>
 							{localList.map((tech) => (
 								<Tag
