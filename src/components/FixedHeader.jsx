@@ -1,7 +1,7 @@
 import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
 import ThemeToggleIcon from "./UI/ThemeToggleIcon";
 
-const FixedHeader = () => {
+export function  FixedHeader ()  {
 	return (
 		<nav className='fixed top-0 inset-x-0 z-50 h-fit p-4 text-white bg-primary font-medium shadow-md shadow-details'>
 			<div className='p-2'>
@@ -31,5 +31,3 @@ const FixedHeader = () => {
 		</nav>
 	);
 };
-
-export default FixedHeader;

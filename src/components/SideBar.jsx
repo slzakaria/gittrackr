@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import TechContext from "../utils/techContext";
 import Tag from "./UI/Tag";
 
-const SideBar = () => {
+export function SideBar ()  {
 	const { techs, updateSharedData } = useContext(TechContext);
 	const [localList, setLocal] = useState([...techs]);
 
@@ -51,5 +51,3 @@ const SideBar = () => {
 		</aside>
 	);
 };
-
-export default SideBar;

@@ -4,7 +4,7 @@ import { useFetch } from "../utils/useFetch";
 import toast from "react-hot-toast";
 import Card from "./UI/Card";
 
-const MainSection = () => {
+export function MainSection () {
 	const { techs, updateSharedData, activeTech } = useContext(TechContext);
 	const [issues, setIssues] = useState([]);
 	const [selectedValue, setSelectedValue] = useState(activeTech);
@@ -82,5 +82,3 @@ const MainSection = () => {
 		</main>
 	);
 };
-
-export default MainSection;

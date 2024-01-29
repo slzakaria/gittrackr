@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import TechContext from "../utils/techContext";
 
-const TechProvider = ({ children }) => {
+export function TechProvider  ({ children })  {
 	const [techs, setTechs] = useState([
 		{ name: "JavaScript", value: "javascript", active: true },
 		{ name: "TypeScript", value: "typescript", active: false },
@@ -45,5 +45,3 @@ const TechProvider = ({ children }) => {
 
 	return <TechContext.Provider value={contextValue}>{children}</TechContext.Provider>;
 };
-
-export default TechProvider;
